@@ -1,0 +1,11 @@
+C:\Users\Alex\source\repos\Farmacie\bin\Debug\netcoreapp3.1\Farmacie.exe
+C:\Users\Alex\source\repos\Farmacie\bin\Debug\netcoreapp3.1\Farmacie.deps.json
+C:\Users\Alex\source\repos\Farmacie\bin\Debug\netcoreapp3.1\Farmacie.runtimeconfig.json
+C:\Users\Alex\source\repos\Farmacie\bin\Debug\netcoreapp3.1\Farmacie.runtimeconfig.dev.json
+C:\Users\Alex\source\repos\Farmacie\bin\Debug\netcoreapp3.1\Farmacie.dll
+C:\Users\Alex\source\repos\Farmacie\bin\Debug\netcoreapp3.1\Farmacie.pdb
+C:\Users\Alex\source\repos\Farmacie\obj\Debug\netcoreapp3.1\Farmacie.csprojAssemblyReference.cache
+C:\Users\Alex\source\repos\Farmacie\obj\Debug\netcoreapp3.1\Farmacie.AssemblyInfoInputs.cache
+C:\Users\Alex\source\repos\Farmacie\obj\Debug\netcoreapp3.1\Farmacie.AssemblyInfo.cs
+C:\Users\Alex\source\repos\Farmacie\obj\Debug\netcoreapp3.1\Farmacie.dll
+C:\Users\Alex\source\repos\Farmacie\obj\Debug\netcoreapp3.1\Farmacie.pdb
