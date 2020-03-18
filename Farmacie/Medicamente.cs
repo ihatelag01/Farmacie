@@ -35,8 +35,38 @@ namespace Farmacie
             else
                 return string.Format("{0} {1} RON\n", nume, pret);
         }
+        public Medicamente(string info)
+        {
+            string[] _info = info.Split(",");
+
+            int i = 0;
+            foreach (var den in _info)
+            {
+                nume = _info[0];
+                
+                
+             
+               
+                 
+                
+                i++;
+                 
+            }
+          
+            foreach(var val in _info )
+            {
+                pret = Convert.ToInt32(_info[1]);
+                i++;
+            }
+            
+             
+
+
+            }
+            
+        }
        
     }
         
-    }
+    
 
