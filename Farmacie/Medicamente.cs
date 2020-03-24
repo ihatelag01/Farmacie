@@ -43,12 +43,6 @@ namespace Farmacie
             foreach (var den in _info)
             {
                 nume = _info[0];
-                
-                
-             
-               
-                 
-                
                 i++;
                  
             }
@@ -63,6 +57,17 @@ namespace Farmacie
 
 
             }
+        public int Compara(Medicamente ob)
+        {
+            if (pret > ob.pret)
+                return 1;
+            if (pret < ob.pret)
+                return -1;
+            else
+                return 0;
+                
+             
+        }
             
         }
        
