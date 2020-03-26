@@ -15,9 +15,10 @@ namespace Farmacie
             Console.WriteLine(s2);
             Console.WriteLine(m2.Compara(m1));
             Console.WriteLine("Introduceti denumirea si pretul: ");
-            Medicamente m3 = new Medicamente(Console.ReadLine(),Convert.ToDouble(Console.ReadLine()));
-            string s3 = m3.Afisare();
-            Console.WriteLine(s3);
+            Medicamente m3 = new Medicamente(Console.ReadLine(),Convert.ToDouble(Console.ReadLine()));//Citire date de la tastatura
+            Console.WriteLine(m3.infoComplet);
+            
+            
         }
     }
 }

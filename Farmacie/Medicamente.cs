@@ -8,8 +8,10 @@ namespace Farmacie
 {
     class Medicamente
     {
-        string nume;
-        double pret;
+         public string nume { get; set; }
+
+        public double pret { get; set; }
+        public string infoComplet { get { return nume + " " + Convert.ToString(pret); } }
 
         public  Medicamente()
         {
@@ -59,15 +61,22 @@ namespace Farmacie
             }
         public int Compara(Medicamente ob)
         {
-            if (pret > ob.pret)
+            if (pret > ob.pret) 
+                
                 return 1;
+            
             if (pret < ob.pret)
+            
+                
                 return -1;
+            
             else
                 return 0;
                 
              
         }
+
+
             
         }
        
