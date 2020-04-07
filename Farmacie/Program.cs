@@ -68,7 +68,14 @@ namespace Farmacie
 
 
                         med[nrMed] = new Medicamente(s1, p, type, pres);
+                        for (int l = 1; l <= nrMed; l++)
+                        {
 
+
+                            med[l].cantitate = 1;
+                          
+                        }
+                        
                         break;
                     case "L":
                         for (int i = 1; i <= nrMed; i++)
@@ -83,14 +90,18 @@ namespace Farmacie
                         {
                             if (s2 == med[i].nume)
                             {
+                                if (med[i].nume == med[i + 1].nume && med[i].TIP == med[i + 1].TIP)
+                                    med[i].cantitate++;
                                 Console.WriteLine("Medicament gasit,stoc" + " " + med[i].cantitate + " " + "bucati");
                                 break;
+
+                                
                             }
-                            else
+                            else 
                             {
 
                                 Console.WriteLine("Medicamentul introdus nu a fost gasit.");
-                                continue;
+                                 
 
 
 
@@ -137,35 +148,35 @@ namespace Farmacie
                     case "T":
                         Console.WriteLine("Introduceti pozitia elementului de modificat:");
                         int poz = Convert.ToInt32(Console.ReadLine());
-                        if(poz<nrMed || poz>nrMed)
+                        if (poz < nrMed || poz > nrMed)
                         {
                             Console.WriteLine("Pozitie invalida,introduceti din nou:");
                             poz = Convert.ToInt32(Console.ReadLine());
                         }
-                        for(int k=1;k<=nrMed;k++)
+                        for (int k = 1; k <= nrMed; k++)
                         {
-                            if(poz==k)
+                            if (poz == k)
                             {
                                 Console.WriteLine("Introduceti noua denumire:");
                                 string s3 = Console.ReadLine();
-                                if(s3==string.Empty)
+                                if (s3 == string.Empty)
                                 {
                                     Console.WriteLine("Denumire invalida,reintroduceti:");
                                     s3 = Console.ReadLine();
-                                    
+
                                 }
-                                 
+
                                 Console.WriteLine("Introduceti noul pret:");
                                 double pr = Convert.ToDouble(Console.ReadLine());
-                                if (pr< 1)
+                                if (pr < 1)
                                 {
                                     Console.WriteLine("Pret invalid,reintroduceti:");
                                     pr = Convert.ToDouble(Console.ReadLine());
                                 }
-                                
-                                
+
+
                                 Console.WriteLine("Introduceti noul tip:");
-                                 
+
                                 Console.WriteLine("1)Comprimat.");
                                 Console.WriteLine("2)Sirop.");
                                 Console.WriteLine("3)Unguent.");
@@ -186,12 +197,12 @@ namespace Farmacie
                                     pres1 = Convert.ToInt32(Console.ReadLine());
                                 }
 
-                                med[k] =new Medicamente(s3, pr, tp,pres1);
+                                med[k] = new Medicamente(s3, pr, tp, pres1);
 
 
 
                             }
-                           
+
 
                         }
                         break;

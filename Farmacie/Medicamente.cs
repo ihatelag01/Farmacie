@@ -8,7 +8,7 @@ namespace Farmacie
 {
     class Medicamente
     {
-         public string nume { get; set; }
+        public string nume { get; set; }
 
         public double pret { get; set; }
         public string infoComplet { get { return nume.ToUpper() + " " + Convert.ToString(pret) + " " + "RON" + "," + Convert.ToString(cantitate) + " " + "buc."; } }
@@ -16,32 +16,32 @@ namespace Farmacie
         public Tip TIP { get; set; }
         public Prescriptie PRES { get; set; }
         public enum Tip
-        {   
-            NEDEFINIT=0,
-            COMPRIMAT=1,
-            SIROP=2,
-            UNGUENT=3,
+        {
+            NEDEFINIT = 0,
+            COMPRIMAT = 1,
+            SIROP = 2,
+            UNGUENT = 3,
         }
         public enum Prescriptie
         {
-            DA=1,
-            NU=0,
+            DA = 1,
+            NU = 0,
         }
 
-        public  Medicamente()
+        public Medicamente()
         {
             pret = 0;
-            string nume =string.Empty;
+            string nume = string.Empty;
             cantitate = 0;
             TIP = 0;
             PRES = 0;
-            
 
-      
+
+
         }
-        
-          
-         public   Medicamente(string _nume,double _pret,int _tip,int _pres)
+
+
+        public Medicamente(string _nume, double _pret, int _tip, int _pres)
         {
             nume = _nume;
             pret = _pret;
@@ -55,7 +55,7 @@ namespace Farmacie
 
                 return "NEDEFINIT";
             else
-                return string.Format("{0} ,pret {1} RON,tip {2},necesita prescriptie {3}.\n", nume.ToUpper(), pret,TIP,PRES);
+                return string.Format("{0} ,pret {1} RON,tip {2},necesita prescriptie {3}.\n", nume.ToUpper(), pret, TIP, PRES);
         }
         public Medicamente(string info)
         {
@@ -66,22 +66,22 @@ namespace Farmacie
             {
                 nume = _info[0];
                 i++;
-                 
+
             }
-          
-            foreach(var val in _info )
+
+            foreach (var val in _info)
             {
                 pret = Convert.ToInt32(_info[1]);
                 i++;
             }
-            
-             
 
 
-            }
+
+
+        }
         public int Compara(Medicamente ob)
         {
-            if (pret > ob.pret) 
+            if (pret > ob.pret)
             {
                 Console.WriteLine("Pret mai mare!");
                 return 1;
@@ -98,15 +98,15 @@ namespace Farmacie
                 Console.WriteLine("Preturi egale!");
                 return 0;
             }
-                
-             
+
+
         }
 
 
-            
-        }
-       
+
     }
-        
-    
+
+}
+
+
 
