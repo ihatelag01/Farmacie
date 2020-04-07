@@ -18,7 +18,7 @@ namespace Farmacie
         public enum Tip
         {   
             NEDEFINIT=0,
-            COMPRIMATE=1,
+            COMPRIMAT=1,
             SIROP=2,
             UNGUENT=3,
         }
@@ -55,7 +55,7 @@ namespace Farmacie
 
                 return "NEDEFINIT";
             else
-                return string.Format("{0} costa {1} RON,tip {2},necesita prescriptie {3}.\n", nume.ToUpper(), pret,TIP,PRES);
+                return string.Format("{0} ,pret {1} RON,tip {2},necesita prescriptie {3}.\n", nume.ToUpper(), pret,TIP,PRES);
         }
         public Medicamente(string info)
         {

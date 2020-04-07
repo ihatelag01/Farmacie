@@ -14,9 +14,10 @@ namespace Farmacie
             {
                 Console.WriteLine("Alegeti o optiune:");
                 Console.WriteLine("A)Adaugare medicament.");
-                Console.WriteLine("B)Afisare lista medicamente.");
+                Console.WriteLine("L)Afisare lista medicamente.");
                 Console.WriteLine("F)Cautare medicament dupa nume si afisare cantitate.");
                 Console.WriteLine("G)Cautare medicamente dupa pret si afisare medicamente cu pretul respectiv.");
+                Console.WriteLine("T)Editare element.");
                 Console.WriteLine("I)Info autor.");
                 Console.WriteLine("X)Iesire");
                 string opt = Console.ReadLine();
@@ -69,7 +70,7 @@ namespace Farmacie
                         med[nrMed] = new Medicamente(s1, p, type, pres);
 
                         break;
-                    case "B":
+                    case "L":
                         for (int i = 1; i <= nrMed; i++)
                         {
                             Console.WriteLine(i + "." + med[i].Afisare());
@@ -130,6 +131,67 @@ namespace Farmacie
                                 Console.WriteLine("Niciun medicament cu pretul introdus nu a fost gasit.");
                                 continue;
                             }
+
+                        }
+                        break;
+                    case "T":
+                        Console.WriteLine("Introduceti pozitia elementului de modificat:");
+                        int poz = Convert.ToInt32(Console.ReadLine());
+                        if(poz<nrMed || poz>nrMed)
+                        {
+                            Console.WriteLine("Pozitie invalida,introduceti din nou:");
+                            poz = Convert.ToInt32(Console.ReadLine());
+                        }
+                        for(int k=1;k<=nrMed;k++)
+                        {
+                            if(poz==k)
+                            {
+                                Console.WriteLine("Introduceti noua denumire:");
+                                string s3 = Console.ReadLine();
+                                if(s3==string.Empty)
+                                {
+                                    Console.WriteLine("Denumire invalida,reintroduceti:");
+                                    s3 = Console.ReadLine();
+                                    
+                                }
+                                 
+                                Console.WriteLine("Introduceti noul pret:");
+                                double pr = Convert.ToDouble(Console.ReadLine());
+                                if (pr< 1)
+                                {
+                                    Console.WriteLine("Pret invalid,reintroduceti:");
+                                    pr = Convert.ToDouble(Console.ReadLine());
+                                }
+                                
+                                
+                                Console.WriteLine("Introduceti noul tip:");
+                                 
+                                Console.WriteLine("1)Comprimat.");
+                                Console.WriteLine("2)Sirop.");
+                                Console.WriteLine("3)Unguent.");
+                                int tp = Convert.ToInt32(Console.ReadLine());
+                                if (tp < 0 || tp > 3)
+                                {
+                                    Console.WriteLine("Tip invalid,reintroduceti");
+                                    tp = Convert.ToInt32(Console.ReadLine());
+                                }
+                                Console.WriteLine("Necesita prescriptie?");
+                                Console.WriteLine("0)Nu");
+                                Console.WriteLine("1)Da");
+
+                                int pres1 = Convert.ToInt32(Console.ReadLine());
+                                if (pres1 != 0 && pres1 != 1)
+                                {
+                                    Console.WriteLine("Optiune invalida,reintroduceti:");
+                                    pres1 = Convert.ToInt32(Console.ReadLine());
+                                }
+
+                                med[k] =new Medicamente(s3, pr, tp,pres1);
+
+
+
+                            }
+                           
 
                         }
                         break;
