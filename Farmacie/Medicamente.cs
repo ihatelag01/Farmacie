@@ -11,7 +11,7 @@ namespace Farmacie
         public string nume { get; set; }
 
         public double pret { get; set; }
-        public string infoComplet { get { return nume.ToUpper() + " " + Convert.ToString(pret) + " " + "RON" + "," + Convert.ToString(cantitate) + " " + "buc."; } }
+        public string infoComplet { get { return nume.ToUpper() + "," + Convert.ToString(pret) + " " + "RON" + "," + Convert.ToString(cantitate) + " " + "buc."; } }
         public int cantitate { get; set; }
         public Tip TIP { get; set; }
         public Prescriptie PRES { get; set; }
@@ -28,7 +28,7 @@ namespace Farmacie
             NU = 0,
         }
 
-        public Medicamente()
+        public Medicamente() //constructor implicit
         {
             pret = 0;
             string nume = string.Empty;
@@ -41,7 +41,7 @@ namespace Farmacie
         }
 
 
-        public Medicamente(string _nume, double _pret, int _tip, int _pres)
+        public Medicamente(string _nume, double _pret, int _tip, int _pres) //constructor parametrii
         {
             nume = _nume;
             pret = _pret;
@@ -49,15 +49,15 @@ namespace Farmacie
             PRES = (Prescriptie)_pres;
         }
 
-        public string Afisare()
+        public string Afisare() //conversie la sir
         {
             if (nume.Length == 0)
 
                 return "NEDEFINIT";
             else
-                return string.Format("{0} ,pret {1} RON,tip {2},necesita prescriptie {3}.\n", nume.ToUpper(), pret, TIP, PRES);
+                return string.Format("{0},pret {1} RON,tip {2},necesita prescriptie {3}.\n", nume.ToUpper(), pret, TIP, PRES);
         }
-        public Medicamente(string info)
+        public Medicamente(string info) //constructor sir de caractere
         {
             string[] _info = info.Split(",");
 
@@ -71,42 +71,72 @@ namespace Farmacie
 
             foreach (var val in _info)
             {
-                pret = Convert.ToInt32(_info[1]);
+                pret = Convert.ToDouble(_info[1]);
                 i++;
             }
+           
+            foreach(var tp in _info)
+            {
+                TIP = (Tip)Enum.Parse(typeof(Tip), _info[2]);
+                i++;
+            }
+            foreach (var pr in _info)
+            {
+                PRES=(Prescriptie)Enum.Parse(typeof(Prescriptie),_info[3]);
+                i++;
+            }
+            foreach (var q in _info)
+            {
+                cantitate = Convert.ToInt32(_info[4]);
+                i++;
+
+            }
+
+
+        }
+
+
+
+
+        public int Compara(Medicamente ob) //metoda comparare pret
+        {
+            
+            if (pret > ob.pret)
+
+
+                return 1;
+
+
+            if (pret < ob.pret)
+
+
+                return -1;
+
+
+            else
+
+
+                return 0;
 
 
 
 
         }
-        public int Compara(Medicamente ob)
+        public string ConversieLaSir_PentruFisier()
         {
-            if (pret > ob.pret)
-            {
-                Console.WriteLine("Pret mai mare!");
-                return 1;
-            }
 
-            if (pret < ob.pret)
-            {
-                Console.WriteLine("Pret mai mic!");
-                return -1;
-            }
-
-            else
-            {
-                Console.WriteLine("Preturi egale!");
-                return 0;
-            }
+            string s = string.Format("{0},{1},{2},{3},{4}", nume.ToUpper(),pret,TIP,PRES,cantitate);
 
 
+            return s;
         }
 
 
 
     }
-
 }
+
+
 
 
 
