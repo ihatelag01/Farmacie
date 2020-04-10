@@ -8,7 +8,7 @@ namespace Farmacie
         {
             Medicamente[] med = new Medicamente[100];
             int nrMed = 0;
-            
+
 
             while (true)
             {
@@ -18,7 +18,7 @@ namespace Farmacie
                 Console.WriteLine("F)Cautare medicament dupa nume si afisare cantitate.");
                 Console.WriteLine("G)Cautare medicamente dupa pret si afisare medicamente cu pretul respectiv.");
                 Console.WriteLine("T)Editare element.");
-                Console.WriteLine("P)Ordonare in functie de pret.");
+                /*Console.WriteLine("P)Ordonare in functie de pret.");*/
                 Console.WriteLine("K)Adaugare in fisier txt");
                 Console.WriteLine("C)Preluare date din fisier text");
                 Console.WriteLine("I)Info autor.");
@@ -71,14 +71,14 @@ namespace Farmacie
 
 
                         med[nrMed] = new Medicamente(s1, p, type, pres);
-                        for (int l = 1; l <=nrMed; l++)
+                        for (int l = 1; l <= nrMed; l++)
                         {
 
 
                             med[l].cantitate = 1;
-                          
+
                         }
-                        
+
                         break;
                     case "L":
                         for (int i = 1; i <= nrMed; i++)
@@ -98,13 +98,13 @@ namespace Farmacie
                                 Console.WriteLine("Medicament gasit,stoc" + " " + med[i].cantitate + " " + "bucati");
                                 break;
 
-                                
+
                             }
-                            else 
+                            else
                             {
 
                                 Console.WriteLine("Medicamentul introdus nu a fost gasit.");
-                                 
+
 
 
 
@@ -209,13 +209,13 @@ namespace Farmacie
 
                         }
                         break;
-                    case "P":
+                    /*case "P":
                         Console.WriteLine("Sortarea dorita:");
                         Console.WriteLine("1)Crescatoare");
                         Console.WriteLine("2)Descrescatoare");
-                        Console.WriteLine("Optiunea dorita:");
+                         
                         int op = Convert.ToInt32(Console.ReadLine());
-                        if(op!=1 && op!=2)
+                        if (op != 1 && op != 2)
                         {
                             Console.WriteLine("Optiune invalida,reintroduceti:");
                             op = Convert.ToInt32(Console.ReadLine());
@@ -224,7 +224,7 @@ namespace Farmacie
                         if (op == 1)
                         {
                             Medicamente ob1 = new Medicamente();
-                            for (int g = 1; g <= nrMed; g++)
+                            for (int g = 1; g <=nrMed; g++)
                             {
                                 if (med[g].Compara(med[g + 1]) == 1)
                                 {
@@ -238,40 +238,40 @@ namespace Farmacie
                                 Console.WriteLine(med[g].infoComplet);
                             }
                         }
-                            if (op == 2)
+                        if (op == 2)
+                        {
+                            Medicamente ob2 = new Medicamente(");
+                            for (int g = 1; g <=nrMed; g++)
                             {
-                                Medicamente ob2 = new Medicamente();
-                                for (int g = 1; g <= nrMed; g++)
+                                if (med[g].Compara(med[g + 1]) == -1)
                                 {
-                                    if (med[g].Compara(med[g + 1]) == -1)
-                                    {
-                                        ob2 = med[g+1];
-                                        med[g + 1] = med[g];
-                                        med[g] = ob2;
+                                    ob2 = med[g + 1];
+                                    med[g + 1] = med[g];
+                                    med[g] = ob2;
 
 
 
-                                    }
-                                    Console.WriteLine(med[g].infoComplet);
                                 }
-
-
+                                Console.WriteLine(med[g].infoComplet);
                             }
-                        
-                            break;
+
+
+                        }
+
+                        break;*/
                     case "K":
                         Op_Text x = new Op_Text("test.txt");
-                        for(int a=1;a<=nrMed;a++)
+                        for (int a = 1; a <= nrMed; a++)
                         {
                             x.AddMedicament(med[a]);
                         }
                         break;
                     case "C":
                         Op_Text x1 = new Op_Text("test.txt");
-                        
+
                         med = x1.GetMed(out nrMed);
-                        
-                         
+
+
                         break;
 
                 }

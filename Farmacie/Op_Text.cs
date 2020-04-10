@@ -49,7 +49,7 @@ namespace Farmacie
                     string line;
                      nrMed = 0;
 
-                    //citeste cate o linie si creaza un obiect de tip Student pe baza datelor din linia citita
+                    //citeste cate o linie si creaza un obiect de tip Medicamente pe baza datelor din linia citita
                     while ((line = sr.ReadLine()) != null)
                     {
                         nrMed++;
