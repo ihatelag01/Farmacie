@@ -4,7 +4,7 @@ using System.Text;
 using System.IO;
 namespace Farmacie
 {
-    class Op_Text
+   public class Op_Text
     {
 
 

@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Interfata/1.0.0": {
+        "dependencies": {
+          "Farmacie": "1.0.0"
+        },
+        "runtime": {
+          "Interfata.dll": {}
+        }
+      },
+      "Farmacie/1.0.0": {
+        "runtime": {
+          "Farmacie.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Interfata/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Farmacie/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

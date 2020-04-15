@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Farmacie
 {
-    class Medicamente
+   public class Medicamente
     {
         public string nume { get; set; }
 
