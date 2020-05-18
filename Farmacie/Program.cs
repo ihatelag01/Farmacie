@@ -1,4 +1,5 @@
 ﻿using System;
+ 
 
 
 namespace Farmacie
@@ -271,7 +272,7 @@ namespace Farmacie
                         Op_Text x1 = new Op_Text("test.txt");
 
                         med = x1.GetMed(out nrMed);
-
+                        
 
                         break;
 

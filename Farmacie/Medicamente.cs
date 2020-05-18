@@ -11,7 +11,7 @@ namespace Farmacie
         public string nume { get; set; }
 
         public double pret { get; set; }
-        public string infoComplet { get { return nume.ToUpper() + "," + Convert.ToString(pret) + " " + "RON" + "," + Convert.ToString(cantitate) + " " + "buc."; } }
+        public string infoComplet { get { return nume.ToUpper() + "," + Convert.ToString(pret) + " " + "RON" + "," +Convert.ToString(TIP) + ","+Convert.ToString(PRES)  ; } }
         public int cantitate { get; set; }
         public Tip TIP { get; set; }
         public Prescriptie PRES { get; set; }
@@ -83,14 +83,9 @@ namespace Farmacie
             foreach (var pr in _info)
             {
                 PRES=(Prescriptie)Enum.Parse(typeof(Prescriptie),_info[3]);
-                i++;
+                
             }
-            foreach (var q in _info)
-            {
-                cantitate = Convert.ToInt32(_info[4]);
-                i++;
-
-            }
+            
 
 
         }
@@ -125,7 +120,7 @@ namespace Farmacie
         public string ConversieLaSir_PentruFisier()
         {
 
-            string s = string.Format("{0},{1},{2},{3},{4}", nume.ToUpper(),pret,TIP,PRES,cantitate);
+            string s = string.Format("{0},{1},{2},{3}", nume.ToUpper(),pret,TIP,PRES);
 
 
             return s;
