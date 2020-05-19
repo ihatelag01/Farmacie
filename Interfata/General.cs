@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Farmacie;
+
 namespace Interfata
 {
     public partial class General : Form
@@ -276,7 +277,8 @@ namespace Interfata
         }
         private void OnButtonEditareClicked(object sender,EventArgs e)
         {
-          
+            Edit e1 = new Edit();
+            e1.Show();
         }
 
 
