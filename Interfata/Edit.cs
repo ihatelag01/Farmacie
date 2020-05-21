@@ -23,7 +23,7 @@ namespace Interfata
         public int b = 10;
         private Label sel = new Label();
         private Button btnSel = new Button();
-        public Edit()
+        public Edit( ArrayList w)
         {
             InitializeComponent();
             this.Size = new System.Drawing.Size(500, 500);
@@ -40,7 +40,7 @@ namespace Interfata
             this.Controls.Add(sel);
 
             Op_Text y = new Op_Text("abc.txt");
-            ArrayList y1 = y.GetMedicamente();
+            w = y.GetMedicamente();
 
 
 
@@ -48,12 +48,15 @@ namespace Interfata
 
             ComboBox c1 = new ComboBox();
             c1.Location = new Point(15, DIMENSIUNE_PAS_Y * 2);
+            c1.Text = "Alegeti...";
             c1.Width = LATIME_CONTROL + 120;
             c1.DropDownHeight = 100;
-            foreach (Medicamente l in y1)
+            foreach (Medicamente l in w)
             {
                 c1.Items.Add(l);
-                c1.Text = l.infoComplet;
+               
+                
+                
 
 
 
@@ -61,7 +64,7 @@ namespace Interfata
 
 
             }
-
+          
 
 
 
@@ -106,14 +109,91 @@ namespace Interfata
                 newTip.BackColor = Color.Transparent;
                 this.Controls.Add(newTip);
 
-                RadioButton comp = new RadioButton();
-                comp.Top = DIMENSIUNE_PAS_Y * 5;
-                
-                
+                CheckBox comp = new CheckBox();
+                comp.Location = new Point(DIMENSIUNE_PAS_X - 35, DIMENSIUNE_PAS_Y * 5);
+                comp.Text = "Comprimat";
+                comp.Width = LATIME_CONTROL;
                 this.Controls.Add(comp);
 
+                CheckBox sir = new CheckBox();
+                sir.Location = new Point(DIMENSIUNE_PAS_X - 35, DIMENSIUNE_PAS_Y * 6);
+                sir.Text = "Sirop";
+                comp.Width = LATIME_CONTROL;
+                this.Controls.Add(sir);
 
+                CheckBox ung = new CheckBox();
+                ung.Location = new Point(DIMENSIUNE_PAS_X - 35, DIMENSIUNE_PAS_Y * 7);
+                ung.Text = "Unguent";
+                ung.Width = LATIME_CONTROL;
+                this.Controls.Add(ung);
+
+                Label newPres = new Label();
+                newPres.Width = LATIME_CONTROL - 20;
+                newPres.Top = DIMENSIUNE_PAS_Y * 8;
+                newPres.Text = "Prescriptie:";
+                newPres.BackColor = Color.Transparent;
+                this.Controls.Add(newPres);
+
+                RadioButton Y = new RadioButton();
+                Y.Location = new Point(DIMENSIUNE_PAS_X - 35, DIMENSIUNE_PAS_Y * 8);
+                Y.Text = "Da";
+                Y.Width = LATIME_CONTROL - 100;
+                this.Controls.Add(Y);
+
+                RadioButton N = new RadioButton();
+                N.Location = new Point(DIMENSIUNE_PAS_X + 15, DIMENSIUNE_PAS_Y * 8);
+                N.Text = "Nu";
+                N.Width = LATIME_CONTROL;
+                this.Controls.Add(N);
+
+                Button btnSave = new Button();
+                btnSave.Text = "Salvati modificarile!";
+
+                btnSave.Width = LATIME_CONTROL;
+                btnSave.Location = new Point(DIMENSIUNE_PAS_X - 35, DIMENSIUNE_PAS_Y * 9);
+                this.Controls.Add(btnSave);
+                btnSave.Click +=    OnButtonSaveClicked;
+                void OnButtonSaveClicked(object sender,EventArgs e)
+                {
+                    string s1=txtNewDen.Text;
+                    double p=Convert.ToDouble(txtNewPrice.Text);
+                    int t=0;
+                    int pr=0;
+                    if (comp.Checked == true)
+                        t = 1;
+                    else if (sir.Checked == true)
+                        t = 2;
+                    else if (ung.Checked == true)
+                        t = 3;
+                    if (Y.Checked == true)
+                        pr = 1;
+                    else if (N.Checked == true)
+                        pr = 0;
+                    Medicamente x = new Medicamente(s1, p, t, pr);
+                    foreach(Medicamente q in w)
+                    {
+                        if(c1.SelectedIndex==w.IndexOf(q))
+                        {
+                            q.nume = x.nume;
+                            q.pret = x.pret;
+                            q.TIP = x.TIP;
+                            q.PRES = x.PRES;
+                        }
+                         
+                    }
+                    y.AddMedicament(x);
+                     
+                    
+                    
+                }
+                 
+            }
+            
+
+            
+
+                
             }
         }
     }
-}
+
