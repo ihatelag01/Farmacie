@@ -232,18 +232,21 @@ namespace Interfata
         {
 
             int validare = Validare();
-            nrMed++;
+           
 
-            Denumire.ForeColor = Color.LimeGreen;
-            Pret.ForeColor = Color.LimeGreen;
-            Tip.ForeColor = Color.LimeGreen;
-            Pres.ForeColor = Color.LimeGreen;
+           
            
 
 
             if (validare == 0)
 
             {
+                nrMed++;
+                Denumire.ForeColor = Color.LimeGreen;
+                Pret.ForeColor = Color.LimeGreen;
+                Tip.ForeColor = Color.LimeGreen;
+                Pres.ForeColor = Color.LimeGreen;
+
                 int ty = 0, prt = 0;
                 if (comp1.Checked == true)
                     ty = 1;
@@ -299,10 +302,7 @@ namespace Interfata
 
             int validare = Validare();
 
-            Denumire.ForeColor = Color.LimeGreen;
-            Pret.ForeColor = Color.LimeGreen;
-            Tip.ForeColor = Color.LimeGreen;
-            Pres.ForeColor = Color.LimeGreen;
+            
             Op_Text x2 = new Op_Text("abc.txt");
             System.Collections.ArrayList k = new System.Collections.ArrayList();
             k = x2.GetMedicamente();

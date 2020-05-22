@@ -20,6 +20,13 @@ namespace Interfata
         private const int INALTIME_CONTROL = 20;
         private const int DIMENSIUNE_PAS_Y = 30;
         private const int DIMENSIUNE_PAS_X = 170;
+        private const int LUNGIME_MAX = 15;
+        private const int PRET_MIN = 1;
+        private const int TIP_MIN = 0;
+        private const int TIP_MAX = 3;
+        private const int PRES_MIN = 0;
+        private const int PRES_MAX = 1;
+
         public int b = 10;
         private Label sel = new Label();
         private Button btnSel = new Button();
@@ -41,7 +48,7 @@ namespace Interfata
 
             Op_Text y = new Op_Text("abc.txt");
             w = y.GetMedicamente();
-
+            
 
 
 
@@ -54,6 +61,7 @@ namespace Interfata
             foreach (Medicamente l in w)
             {
                 c1.Items.Add(l);
+                 
                
                 
                 
@@ -64,6 +72,8 @@ namespace Interfata
 
 
             }
+             
+          
           
 
 
@@ -155,36 +165,91 @@ namespace Interfata
                 btnSave.Click +=    OnButtonSaveClicked;
                 void OnButtonSaveClicked(object sender,EventArgs e)
                 {
-                    string s1=txtNewDen.Text;
-                    double p=Convert.ToDouble(txtNewPrice.Text);
-                    int t=0;
-                    int pr=0;
-                    if (comp.Checked == true)
-                        t = 1;
-                    else if (sir.Checked == true)
-                        t = 2;
-                    else if (ung.Checked == true)
-                        t = 3;
-                    if (Y.Checked == true)
-                        pr = 1;
-                    else if (N.Checked == true)
-                        pr = 0;
-                    Medicamente x = new Medicamente(s1, p, t, pr);
-                    foreach(Medicamente q in w)
+                    int v = ValidareEdit();
+                    if (v == 0)
                     {
-                        if(c1.SelectedIndex==w.IndexOf(q))
+                        string s1 = txtNewDen.Text;
+                        double p = Convert.ToDouble(txtNewPrice.Text);
+                        int t = 0;
+                        int pr = 0;
+                        if (comp.Checked == true)
+                            t = 1;
+                        else if (sir.Checked == true)
+                            t = 2;
+                        else if (ung.Checked == true)
+                            t = 3;
+                        if (Y.Checked == true)
+                            pr = 1;
+                        else if (N.Checked == true)
+                            pr = 0;
+                        Medicamente x = new Medicamente(s1, p, t, pr);
+                        foreach (Medicamente q in w)
                         {
-                            q.nume = x.nume;
-                            q.pret = x.pret;
-                            q.TIP = x.TIP;
-                            q.PRES = x.PRES;
+                            if (c1.SelectedIndex == w.IndexOf(q))
+                            {
+                                q.nume = x.nume;
+                                q.pret = x.pret;
+                                q.TIP = x.TIP;
+                                q.PRES = x.PRES;
+                            }
+
                         }
-                         
+                        y.AddMedicament(x);
                     }
-                    y.AddMedicament(x);
+                    else
+                    {
+                        switch(v)
+                        {
+                            case 1:
+                                NewDen.ForeColor = Color.Red;
+                                break;
+                            case 2:
+                                NewPrice.ForeColor = Color.Red;
+                                break;
+                            case 3:
+                                newTip.ForeColor = Color.Red;
+                                break;
+                            case 4:
+                                newPres.ForeColor = Color.Red;
+                                break;
+                                
+                        }
+                        
+                    }
                      
                     
                     
+                }
+                 int ValidareEdit()
+                {
+                    if(txtNewDen.Text==string.Empty|| txtNewDen.Text.Length>LUNGIME_MAX)
+                    {
+                        
+                        return 1; 
+
+                    }
+                    else if(txtNewPrice.Text==string.Empty||Convert.ToDouble(txtNewPrice.Text)<PRET_MIN)
+                    {
+                        
+                        return 2;
+                    }
+                    else if ((comp.Checked == true && sir.Checked == true && ung.Checked == true) || (sir.Checked == false && ung.Checked == false && comp.Checked == false))
+                    {
+                        
+
+                        return 3;
+                    }
+
+                    else if (Y.Checked == false && N.Checked == false)
+                    {
+                        
+                        return 4;
+                    }
+
+
+                    return 0;
+
+
                 }
                  
             }
