@@ -40,7 +40,7 @@ namespace Interfata
         private CheckBox ung1;
         private RadioButton Y1;
         private RadioButton N1;
-
+        
 
 
 
@@ -66,7 +66,7 @@ namespace Interfata
             this.Font = new Font("Arial", 9, FontStyle.Bold);
             this.ForeColor = Color.Black;
             this.Text = "Farmacie";
-
+            //this.BackgroundImage = System.Windows.Forms.Porperties.Resources._007;
 
             Denumire = new Label();
             Denumire.Width = LATIME_CONTROL;
@@ -95,14 +95,7 @@ namespace Interfata
             Pres.BackColor = Color.Transparent;
             this.Controls.Add(Pres);
 
-            /*Info = new Label();
-            Info.Width = LATIME_CONTROL * 3;
-            Info.Height = INALTIME_CONTROL * 3;
-            Info.Top = DIMENSIUNE_PAS_Y * 7;
-            Info.BackColor = Color.Green;
-            Info.ForeColor = Color.White;
-            this.Controls.Add(Info)*/
-
+          
 
             txtDenumire = new TextBox();
             txtDenumire.Width = LATIME_CONTROL;
@@ -116,6 +109,7 @@ namespace Interfata
 
             comp1 = new CheckBox();
             comp1.Location = new Point(DIMENSIUNE_PAS_X -70, DIMENSIUNE_PAS_Y * 2);
+            comp1.BackColor = Color.Transparent;
             comp1.Text = "Comprimat";
             comp1.Width = LATIME_CONTROL;
             this.Controls.Add(comp1);
@@ -123,12 +117,14 @@ namespace Interfata
              sir1 = new CheckBox();
             sir1.Location = new Point(DIMENSIUNE_PAS_X+110 , DIMENSIUNE_PAS_Y * 2);
             sir1.Text = "Sirop";
+            sir1.BackColor = Color.Transparent;
             sir1.Width = LATIME_CONTROL-50;
             this.Controls.Add(sir1);
 
             ung1 = new CheckBox();
             ung1.Location = new Point(DIMENSIUNE_PAS_X+220, DIMENSIUNE_PAS_Y * 2);
             ung1.Text = "Unguent";
+            ung1.BackColor = Color.Transparent;
             ung1.Width = LATIME_CONTROL;
             this.Controls.Add(ung1);
 
@@ -137,26 +133,21 @@ namespace Interfata
              Y1 = new RadioButton();
             Y1.Location = new Point(DIMENSIUNE_PAS_X - 35, DIMENSIUNE_PAS_Y * 3);
             Y1.Text = "Da";
+            Y1.BackColor = Color.Transparent;
             Y1.Width = LATIME_CONTROL - 100;
             this.Controls.Add(Y1);
 
             N1 = new RadioButton();
             N1.Location = new Point(DIMENSIUNE_PAS_X + 15, DIMENSIUNE_PAS_Y * 3);
+            N1.BackColor = Color.Transparent;
             N1.Text = "Nu";
             N1.Width = LATIME_CONTROL;
             this.Controls.Add(N1);
 
-            /*txtTip = new TextBox();
-            txtTip.Width = LATIME_CONTROL;
-            txtTip.Location = new System.Drawing.Point(DIMENSIUNE_PAS_X + 110, DIMENSIUNE_PAS_Y * 2);
-            this.Controls.Add(txtTip);*/
-
-            /*txtPres = new TextBox();
-            txtPres.Width = LATIME_CONTROL;
-            txtPres.Location = new System.Drawing.Point(DIMENSIUNE_PAS_X + 110, DIMENSIUNE_PAS_Y * 3);
-            this.Controls.Add(txtPres);*/
+ 
 
             btnAdaugare = new Button();
+           
             btnAdaugare.Width = LATIME_CONTROL;
             btnAdaugare.Location = new System.Drawing.Point(DIMENSIUNE_PAS_X + 110, 4 * DIMENSIUNE_PAS_Y);
             btnAdaugare.BackColor = Color.Transparent;
@@ -208,7 +199,7 @@ namespace Interfata
             btnEditare.Click += OnButtonEditareClicked;
 
             btnAfisare = new Button();
-            btnAfisare.Text = "Afiasare";
+            btnAfisare.Text = "Afisare";
             btnAfisare.Width = LATIME_CONTROL;
             btnAfisare.Location = new Point(DIMENSIUNE_PAS_X + 110, DIMENSIUNE_PAS_Y * 6);
             btnAfisare.BackColor = Color.Transparent;
@@ -218,7 +209,7 @@ namespace Interfata
 
             lstAfisare = new ListBox();
             lstAfisare.Location = new Point(DIMENSIUNE_PAS_X + 400, DIMENSIUNE_PAS_Y-20);
-            lstAfisare.Size = new Size(460, 300);
+            lstAfisare.Size = new Size(510, 320);
             this.Controls.Add(lstAfisare);
 
 

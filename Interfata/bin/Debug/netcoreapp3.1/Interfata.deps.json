@@ -8,10 +8,19 @@
     ".NETCoreApp,Version=v3.1": {
       "Interfata/1.0.0": {
         "dependencies": {
-          "Farmacie": "1.0.0"
+          "Farmacie": "1.0.0",
+          "ResXResourceReader.NetStandard": "1.0.1"
         },
         "runtime": {
           "Interfata.dll": {}
+        }
+      },
+      "ResXResourceReader.NetStandard/1.0.1": {
+        "runtime": {
+          "lib/netstandard2.1/System.Resources.NetStandard.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Farmacie/1.0.0": {
@@ -26,6 +35,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "ResXResourceReader.NetStandard/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XIni6GQVaJHbI3mpOXMbqPRsvUweA1AfPW/Y1vYnfQOJTBG37hEbwcle4OfSdwoMLRr5EowxOQNukCCEf7ssCw==",
+      "path": "resxresourcereader.netstandard/1.0.1",
+      "hashPath": "resxresourcereader.netstandard.1.0.1.nupkg.sha512"
     },
     "Farmacie/1.0.0": {
       "type": "project",

@@ -58,10 +58,12 @@ namespace Interfata
             c1.Text = "Alegeti...";
             c1.Width = LATIME_CONTROL + 120;
             c1.DropDownHeight = 100;
+            
+            //c1.DataSource = w;
             foreach (Medicamente l in w)
             {
-                c1.Items.Add(l);
-                 
+                c1.Items.Add(l.nume);
+               
                
                 
                 
@@ -72,9 +74,9 @@ namespace Interfata
 
 
             }
-             
-          
-          
+
+
+
 
 
 

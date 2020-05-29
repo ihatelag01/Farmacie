@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "L68Mfva+hY/D+BeQD+VDGg9OSPiB8+J981YIO8grnOriA+y46S4XFEbl+gAdboRzY2u6lHHrfgfEUYrjq2tUtA==",
+  "dgSpecHash": "q4oJSqpV0qNagXi+x0zY3XWy+FL88EC1cKeak3331jF13X9BnpIftFw/bq4Ey+UiqL6cAAUj1WeEs6Xk0GyTag==",
   "success": true,
   "projectFilePath": "C:\\Users\\Alex\\source\\repos\\Farmacie\\Farmacie.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Alex\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
   "logs": []
 }
