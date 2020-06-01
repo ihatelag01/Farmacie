@@ -186,17 +186,7 @@ namespace Interfata
                         else if (N.Checked == true)
                             pr = 0;
                         Medicamente x = new Medicamente(s1, p, t, pr);
-                        foreach (Medicamente q in w)
-                        {
-                            if (c1.SelectedIndex==w.IndexOf(q))
-                            {
-                                q.nume = x.nume;
-                                q.pret = x.pret;
-                                q.TIP = x.TIP;
-                                q.PRES = x.PRES;
-                            }
-
-                        }
+                        y.ModificaLinie("abc.txt",c1.SelectedIndex, x);
                        
                     }
                     else

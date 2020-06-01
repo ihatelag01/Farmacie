@@ -122,6 +122,15 @@ namespace Farmacie
 
             return medicamente;
         }
+        public void ModificaLinie(string NumeFisier,int linie,Medicamente m)
+        {
+            string[] fisier = File.ReadAllLines(NumeFisier);
+            fisier[linie] = m.ConversieLaSir_PentruFisier();
+            File.WriteAllLines(NumeFisier, fisier);
+           
+
+             
+        }
 
 
     }
