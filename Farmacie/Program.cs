@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Vizitiu Alexandru 3123b
+using System;
  
 
 
@@ -20,7 +21,7 @@ namespace Farmacie
                 Console.WriteLine("F)Cautare medicament dupa nume si afisare cantitate.");
                 Console.WriteLine("G)Cautare medicamente dupa pret si afisare medicamente cu pretul respectiv.");
                 Console.WriteLine("T)Editare element.");
-                /*Console.WriteLine("P)Ordonare in functie de pret.");*/
+                
                 Console.WriteLine("K)Adaugare in fisier txt");
                 Console.WriteLine("C)Preluare date din fisier text");
                 Console.WriteLine("I)Info autor.");
@@ -211,56 +212,7 @@ namespace Farmacie
 
                         }
                         break;
-                    /*case "P":
-                        Console.WriteLine("Sortarea dorita:");
-                        Console.WriteLine("1)Crescatoare");
-                        Console.WriteLine("2)Descrescatoare");
-                         
-                        int op = Convert.ToInt32(Console.ReadLine());
-                        if (op != 1 && op != 2)
-                        {
-                            Console.WriteLine("Optiune invalida,reintroduceti:");
-                            op = Convert.ToInt32(Console.ReadLine());
-                        }
-                        Console.WriteLine("Sortarea:");
-                        if (op == 1)
-                        {
-                            Medicamente ob1 = new Medicamente();
-                            for (int g = 1; g <=nrMed; g++)
-                            {
-                                if (med[g].Compara(med[g + 1]) == 1)
-                                {
-                                    ob1 = med[g + 1];
-                                    med[g + 1] = med[g];
-                                    med[g] = ob1;
-
-
-
-                                }
-                                Console.WriteLine(med[g].infoComplet);
-                            }
-                        }
-                        if (op == 2)
-                        {
-                            Medicamente ob2 = new Medicamente(");
-                            for (int g = 1; g <=nrMed; g++)
-                            {
-                                if (med[g].Compara(med[g + 1]) == -1)
-                                {
-                                    ob2 = med[g + 1];
-                                    med[g + 1] = med[g];
-                                    med[g] = ob2;
-
-
-
-                                }
-                                Console.WriteLine(med[g].infoComplet);
-                            }
-
-
-                        }
-
-                        break;*/
+                    
                     case "K":
                         Op_Text x = new Op_Text("test.txt");
                         for (int a = 1; a <= nrMed; a++)

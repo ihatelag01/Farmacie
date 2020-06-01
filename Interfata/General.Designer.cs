@@ -1,4 +1,5 @@
-﻿namespace Interfata
+﻿//Vizitiu Alexandru 3123b
+namespace Interfata
 {
     partial class General
     {
@@ -37,6 +38,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "General";
             this.Text = "Form1";
             this.ResumeLayout(false);

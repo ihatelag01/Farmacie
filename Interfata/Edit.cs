@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Vizitiu Alexandru 3123b
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,13 +57,13 @@ namespace Interfata
             ComboBox c1 = new ComboBox();
             c1.Location = new Point(15, DIMENSIUNE_PAS_Y * 2);
             c1.Text = "Alegeti...";
-            c1.Width = LATIME_CONTROL + 120;
+            c1.Width = LATIME_CONTROL + 150;
             c1.DropDownHeight = 100;
             
             //c1.DataSource = w;
             foreach (Medicamente l in w)
             {
-                c1.Items.Add(l.nume);
+                c1.Items.Add(l.infoComplet);
                
                
                 
@@ -85,7 +86,7 @@ namespace Interfata
 
             btnSel.Text = "Selectati";
             btnSel.Width = LATIME_CONTROL;
-            btnSel.Location = new Point(300, DIMENSIUNE_PAS_Y * 2);
+            btnSel.Location = new Point(320, DIMENSIUNE_PAS_Y * 2);
             this.Controls.Add(btnSel);
             btnSel.Click += OnButtonSelClicked;
             void OnButtonSelClicked(object sender, EventArgs e)
@@ -187,7 +188,7 @@ namespace Interfata
                         Medicamente x = new Medicamente(s1, p, t, pr);
                         foreach (Medicamente q in w)
                         {
-                            if (c1.SelectedIndex == w.IndexOf(q))
+                            if (c1.SelectedIndex==w.IndexOf(q))
                             {
                                 q.nume = x.nume;
                                 q.pret = x.pret;
@@ -196,7 +197,7 @@ namespace Interfata
                             }
 
                         }
-                        y.AddMedicament(x);
+                       
                     }
                     else
                     {
