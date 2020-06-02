@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Farmacie
 {
-    //clasa AdministrareStudenti_FisierText implementeaza interfata IStocareData
+    
     public class Op_Text
     {
         
@@ -24,7 +24,7 @@ namespace Farmacie
         }
         public void AddMedicament(Medicamente m)
         {
-            //student.IdStudent = GetId();
+            
             try
             {
                 //instructiunea 'using' va apela la final swFisierText.Close();
@@ -63,6 +63,9 @@ namespace Farmacie
                          
 
                             Medicamente m = new Medicamente(line);
+                        
+                        
+                         
                             medicamente.Add(m);
                          
                          
@@ -122,7 +125,7 @@ namespace Farmacie
 
             return medicamente;
         }
-        public void ModificaLinie(string NumeFisier,int linie,Medicamente m)
+        public void ModificaLinie(string NumeFisier,int linie,Medicamente m) //metoda modificare linie 
         {
             string[] fisier = File.ReadAllLines(NumeFisier);
             fisier[linie] = m.ConversieLaSir_PentruFisier();

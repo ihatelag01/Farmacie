@@ -61,13 +61,13 @@ namespace Interfata
 
         {
             InitializeComponent();
-            this.Size = new System.Drawing.Size(1000, 500);
+            this.Size = new System.Drawing.Size(1300, 500);
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new System.Drawing.Point(100, 100);
             this.Font = new Font("Arial", 9, FontStyle.Bold);
             this.ForeColor = Color.Black;
             this.Text = "Farmacie";
-            //this.BackgroundImage = System.Windows.Forms.Porperties.Resources._007;
+             
 
             Denumire = new Label();
             Denumire.Width = LATIME_CONTROL;
@@ -210,7 +210,7 @@ namespace Interfata
 
             lstAfisare = new ListBox();
             lstAfisare.Location = new Point(DIMENSIUNE_PAS_X + 400, DIMENSIUNE_PAS_Y-20);
-            lstAfisare.Size = new Size(510, 320);
+            lstAfisare.Size = new Size(710, 320);
             this.Controls.Add(lstAfisare);
 
 
@@ -289,32 +289,50 @@ namespace Interfata
 
             }
         }
+        int validareCauta()
+        {
+            if (txtCautNume.Text == string.Empty || txtCautNume.Text.Length > LUNGIME_MAX)
+            {
+                CautNume.ForeColor = Color.Red;
+                lstAfisare.Items.Clear();
+                lstAfisare.Items.Add("Date invalide pentru cautare,reintroduceti.");
+                return 1;
+            }
+            else
+            {
+                CautNume.ForeColor = Color.Green;
+                return 0;
+            }
+        }
         private void OnButtonCautaNumeClicked(object sender, EventArgs e)
         {
 
-            int validare = Validare();
 
-            
-            Op_Text x2 = new Op_Text("abc.txt");
-            System.Collections.ArrayList k = new System.Collections.ArrayList();
-            k = x2.GetMedicamente();
-            foreach (Medicamente y in k)
+            int c = validareCauta();
+            if (c == 0)
             {
-                if (y.nume == txtCautNume.Text.ToUpper())
 
+                Op_Text x2 = new Op_Text("abc.txt");
+                System.Collections.ArrayList k = new System.Collections.ArrayList();
+                k = x2.GetMedicamente();
+                foreach (Medicamente y in k)
                 {
-                    lstAfisare.Items.Clear();
-                    lstAfisare.Items.Add(y.infoComplet);
-                    break;
-                }
-                else
-                {
-                    lstAfisare.Items.Clear();
-                    lstAfisare.Items.Add("Medicamentul nu a fost gasit!");
-                    continue;
-                }
+                    if (y.nume == txtCautNume.Text.ToUpper())
+
+                    {
+                        lstAfisare.Items.Clear();
+                        lstAfisare.Items.Add(y.Afisare());
+                        break;
+                    }
+                    else
+                    {
+                        lstAfisare.Items.Clear();
+                        lstAfisare.Items.Add("Medicamentul nu a fost gasit!");
+                        continue;
+                    }
 
 
+                }
             }
 
 
@@ -340,9 +358,10 @@ namespace Interfata
             lstAfisare.Items.Clear();
             Op_Text ad = new Op_Text("abc.txt");
             ArrayList r = ad.GetMedicamente();
-            foreach(Medicamente m in r)
+            foreach(Medicamente q in r)
             {
-                lstAfisare.Items.Add(m.Afisare());
+                
+                lstAfisare.Items.Add(q.Afisare());
             }
         }
         private void OnButtonEditareClicked(object sender,EventArgs e)

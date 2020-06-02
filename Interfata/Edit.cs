@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Design;
 using System.Drawing.Text;
 using System.Linq;
 using System.Text;
@@ -45,6 +46,7 @@ namespace Interfata
             sel.Top = 10;
             sel.Text = "Selectati medicamentul din lista:";
             sel.ForeColor = Color.Black;
+            sel.BackColor = Color.Transparent;
             this.Controls.Add(sel);
 
             Op_Text y = new Op_Text("abc.txt");
@@ -55,12 +57,12 @@ namespace Interfata
 
 
             ComboBox c1 = new ComboBox();
-            c1.Location = new Point(15, DIMENSIUNE_PAS_Y * 2);
+            c1.Location = new Point(5, DIMENSIUNE_PAS_Y * 2);
             c1.Text = "Alegeti...";
             c1.Width = LATIME_CONTROL + 150;
             c1.DropDownHeight = 100;
             
-            //c1.DataSource = w;
+             
             foreach (Medicamente l in w)
             {
                 c1.Items.Add(l.infoComplet);
@@ -126,18 +128,21 @@ namespace Interfata
                 comp.Location = new Point(DIMENSIUNE_PAS_X - 35, DIMENSIUNE_PAS_Y * 5);
                 comp.Text = "Comprimat";
                 comp.Width = LATIME_CONTROL;
+                comp.BackColor = Color.Transparent;
                 this.Controls.Add(comp);
 
                 CheckBox sir = new CheckBox();
                 sir.Location = new Point(DIMENSIUNE_PAS_X - 35, DIMENSIUNE_PAS_Y * 6);
                 sir.Text = "Sirop";
-                comp.Width = LATIME_CONTROL;
+                sir.BackColor = Color.Transparent;
+                sir.Width = LATIME_CONTROL;
                 this.Controls.Add(sir);
 
                 CheckBox ung = new CheckBox();
                 ung.Location = new Point(DIMENSIUNE_PAS_X - 35, DIMENSIUNE_PAS_Y * 7);
                 ung.Text = "Unguent";
                 ung.Width = LATIME_CONTROL;
+                ung.BackColor = Color.Transparent;
                 this.Controls.Add(ung);
 
                 Label newPres = new Label();
@@ -151,16 +156,18 @@ namespace Interfata
                 Y.Location = new Point(DIMENSIUNE_PAS_X - 35, DIMENSIUNE_PAS_Y * 8);
                 Y.Text = "Da";
                 Y.Width = LATIME_CONTROL - 100;
+                Y.BackColor = Color.Transparent;
                 this.Controls.Add(Y);
 
                 RadioButton N = new RadioButton();
                 N.Location = new Point(DIMENSIUNE_PAS_X + 15, DIMENSIUNE_PAS_Y * 8);
                 N.Text = "Nu";
+                N.BackColor = Color.Transparent;
                 N.Width = LATIME_CONTROL;
                 this.Controls.Add(N);
 
                 Button btnSave = new Button();
-                btnSave.Text = "Salvati modificarile!";
+                btnSave.Text = "Salvati";
 
                 btnSave.Width = LATIME_CONTROL;
                 btnSave.Location = new Point(DIMENSIUNE_PAS_X - 35, DIMENSIUNE_PAS_Y * 9);
@@ -186,7 +193,9 @@ namespace Interfata
                         else if (N.Checked == true)
                             pr = 0;
                         Medicamente x = new Medicamente(s1, p, t, pr);
+                        
                         y.ModificaLinie("abc.txt",c1.SelectedIndex, x);
+                        
                        
                     }
                     else
@@ -244,6 +253,7 @@ namespace Interfata
 
 
                 }
+              
                  
             }
             
