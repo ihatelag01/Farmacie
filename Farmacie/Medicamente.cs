@@ -94,6 +94,7 @@ namespace Farmacie
             foreach(var den in _info)
             {
                 dataActualizare =Convert.ToDateTime(_info[4]);
+                 
                 
             }
             

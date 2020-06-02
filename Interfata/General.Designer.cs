@@ -1,4 +1,6 @@
 ﻿//Vizitiu Alexandru 3123b
+using System.Drawing;
+
 namespace Interfata
 {
     partial class General
@@ -30,7 +32,19 @@ namespace Interfata
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(General));
+            this.cautareData = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // cautareData
+            // 
+            this.cautareData.AutoSize = true;
+            this.cautareData.Location = new System.Drawing.Point(1, 370);
+            this.cautareData.Name = "cautareData";
+            this.cautareData.Size = new System.Drawing.Size(50, 20);
+            this.cautareData.BackColor = Color.Transparent;
+            this.cautareData.TabIndex = 0;
+            this.cautareData.Text = "Introduceti intervalul dorit:";
+             
             // 
             // General
             // 
@@ -38,14 +52,18 @@ namespace Interfata
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cautareData);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "General";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label cautareData;
     }
 }
 

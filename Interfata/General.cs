@@ -41,20 +41,18 @@ namespace Interfata
         private CheckBox ung1;
         private RadioButton Y1;
         private RadioButton N1;
-        
-
+        private TextBox dataLeft;
+        private TextBox dataRight;
+        private Button btnCautaData;
 
 
         private const int LATIME_CONTROL = 150;
-        private const int INALTIME_CONTROL = 20;
+         
         private const int DIMENSIUNE_PAS_Y = 30;
         private const int DIMENSIUNE_PAS_X = 170;
         private const int LUNGIME_MAX = 15;
         private const int PRET_MIN = 1;
-        private const int TIP_MIN = 0;
-        private const int TIP_MAX = 3;
-        private const int PRES_MIN = 0;
-        private const int PRES_MAX = 1;
+        
 
 
         public General()
@@ -210,13 +208,27 @@ namespace Interfata
 
             lstAfisare = new ListBox();
             lstAfisare.Location = new Point(DIMENSIUNE_PAS_X + 400, DIMENSIUNE_PAS_Y-20);
-            lstAfisare.Size = new Size(710, 320);
+            lstAfisare.Size = new Size(730, 320);
             this.Controls.Add(lstAfisare);
 
+            dataLeft = new TextBox();
+            dataLeft.Width = LATIME_CONTROL-60;
+            dataLeft.Location = new Point(DIMENSIUNE_PAS_X+50,DIMENSIUNE_PAS_Y*11);
+            this.Controls.Add(dataLeft);
 
+            dataRight = new TextBox();
+            dataRight.Width = LATIME_CONTROL - 60;
+            dataRight.Location = new Point(DIMENSIUNE_PAS_X + 170, DIMENSIUNE_PAS_Y * 11);
+            this.Controls.Add(dataRight);
 
+             
 
-
+            btnCautaData = new Button();
+            btnCautaData.Location = new Point(DIMENSIUNE_PAS_X + 110, DIMENSIUNE_PAS_Y * 12);
+            btnCautaData.Width = LATIME_CONTROL;
+            btnCautaData.Text = "Cautare data";
+            this.Controls.Add(btnCautaData);
+            btnCautaData.Click += OnButtonCautaDataClicked;
 
         }
 
@@ -289,6 +301,32 @@ namespace Interfata
 
             }
         }
+        private void OnButtonCautaDataClicked(object sender,EventArgs e)
+        {
+            int d = validareData();
+            if(d==0)
+            {
+                Op_Text bb = new Op_Text("abc.txt");
+                ArrayList q = bb.GetMedicamente();
+                foreach(Medicamente m in q)
+                {
+                    if(m.dataActualizare>=Convert.ToDateTime(dataLeft.Text)&& m.dataActualizare<=Convert.ToDateTime(dataRight.Text))
+                    {
+
+                        lstAfisare.Items.Clear(); 
+                        lstAfisare.Items.Add(m.Afisare());
+
+                    }
+                    else
+                    {
+                        lstAfisare.Items.Clear();
+                        lstAfisare.Items.Add("Niciun medicament gasit in intervalul introdus.");
+                    }
+                }
+                
+            }
+
+        }
         int validareCauta()
         {
             if (txtCautNume.Text == string.Empty || txtCautNume.Text.Length > LUNGIME_MAX)
@@ -301,6 +339,21 @@ namespace Interfata
             else
             {
                 CautNume.ForeColor = Color.Green;
+                return 0;
+            }
+        }
+        int validareData()
+        {
+            if((dataLeft.Text==string.Empty||dataRight.Text==string.Empty))
+            {
+                cautareData.ForeColor = Color.Red;
+                lstAfisare.Items.Clear();
+                lstAfisare.Items.Add("Date invalide pentru cautare,reintroduceti");
+                return 1;
+            }
+            else
+            {
+                cautareData.ForeColor = Color.Green;
                 return 0;
             }
         }
@@ -411,6 +464,8 @@ namespace Interfata
 
             return 0;
         }
+
+        
     }
 
     }
