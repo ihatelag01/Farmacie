@@ -44,6 +44,8 @@ namespace Interfata
         private TextBox dataLeft;
         private TextBox dataRight;
         private Button btnCautaData;
+        private Button sortPretAsc;
+        private Button sortPretDsc;
 
 
         private const int LATIME_CONTROL = 150;
@@ -230,6 +232,19 @@ namespace Interfata
             this.Controls.Add(btnCautaData);
             btnCautaData.Click += OnButtonCautaDataClicked;
 
+            sortPretAsc = new Button();
+            sortPretAsc.Location = new Point(DIMENSIUNE_PAS_X + 110, DIMENSIUNE_PAS_Y * 7);
+            sortPretAsc.Width = LATIME_CONTROL;
+            sortPretAsc.Text = "Sortare pret ascendent";
+            this.Controls.Add(sortPretAsc);
+            sortPretAsc.Click += OnsortPretAscClicked;
+
+            sortPretDsc = new Button();
+            sortPretDsc.Location = new Point(DIMENSIUNE_PAS_X + 110, DIMENSIUNE_PAS_Y * 8);
+            sortPretDsc.Width = LATIME_CONTROL;
+            sortPretDsc.Text = "Sortare pret desc.";
+            this.Controls.Add(sortPretDsc);
+            sortPretDsc.Click += OnsortPretDscClicked;
         }
 
         private void OnButtonAdaugaClicked(object sender, EventArgs e)
@@ -465,7 +480,28 @@ namespace Interfata
             return 0;
         }
 
-        
+        private void OnsortPretAscClicked(object sender, EventArgs e)
+        {
+            Op_Text p = new Op_Text("abc.txt");
+            ArrayList k = p.GetMedicamente();
+            k.Sort(new Compara());
+            lstAfisare.Items.Clear();
+            foreach(Medicamente q in k)
+            {
+                lstAfisare.Items.Add(q.Afisare());
+            }
+        }
+        private void OnsortPretDscClicked(object sender,EventArgs e)
+        {
+            Op_Text b = new Op_Text("abc.txt");
+            ArrayList m = b.GetMedicamente();
+            m.Sort(new ComparaDsc());
+            lstAfisare.Items.Clear();
+            foreach(Medicamente w in m)
+            {
+                lstAfisare.Items.Add(w.Afisare());
+            }
+        }
     }
 
     }

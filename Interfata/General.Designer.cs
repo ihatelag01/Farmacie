@@ -38,22 +38,23 @@ namespace Interfata
             // cautareData
             // 
             this.cautareData.AutoSize = true;
-            this.cautareData.Location = new System.Drawing.Point(1, 370);
+            this.cautareData.BackColor = System.Drawing.Color.Transparent;
+            this.cautareData.Location = new System.Drawing.Point(2, 336);
             this.cautareData.Name = "cautareData";
-            this.cautareData.Size = new System.Drawing.Size(50, 20);
-            this.cautareData.BackColor = Color.Transparent;
+            this.cautareData.Size = new System.Drawing.Size(148, 15);
             this.cautareData.TabIndex = 0;
             this.cautareData.Text = "Introduceti intervalul dorit:";
-             
+            //this.cautareData.Click += new System.EventHandler(this.cautareData_Click);
             // 
             // General
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(756, 422);
             this.Controls.Add(this.cautareData);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "General";
             this.Text = "Form1";
             this.ResumeLayout(false);
