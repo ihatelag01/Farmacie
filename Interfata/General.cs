@@ -241,8 +241,10 @@ namespace Interfata
 
             sortPretDsc = new Button();
             sortPretDsc.Location = new Point(DIMENSIUNE_PAS_X + 110, DIMENSIUNE_PAS_Y * 8);
+            
+            sortPretDsc.Font = new Font(sortPretDsc.Font.FontFamily,8,FontStyle.Bold);
             sortPretDsc.Width = LATIME_CONTROL;
-            sortPretDsc.Text = "Sortare pret desc.";
+            sortPretDsc.Text = "Sortare pret descendent";
             this.Controls.Add(sortPretDsc);
             sortPretDsc.Click += OnsortPretDscClicked;
         }
@@ -499,7 +501,7 @@ namespace Interfata
             lstAfisare.Items.Clear();
             foreach(Medicamente w in m)
             {
-                lstAfisare.Items.Add(w.Afisare());
+                lstAfisare.Items.Add(w.Afisare()) ;
             }
         }
     }
